@@ -3,8 +3,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Dimensions } from "react-native";
 
 const screenWidth = Dimensions.get("window").width;
-const tabBarWidth = screenWidth * 0.62;
-const tabBarHorizontalPadding = (screenWidth - tabBarWidth) / 2;
+const tabBarWidth = screenWidth * 0.9;
 
 export default function TabsLayout() {
   return (
@@ -15,20 +14,19 @@ export default function TabsLayout() {
         tabBarInactiveTintColor: "#e4e4e7",
         tabBarShowLabel: true,
         tabBarStyle: {
-          position: "absolute",
-          left: tabBarHorizontalPadding,
-          right: tabBarHorizontalPadding,
           bottom: 18,
           width: tabBarWidth,
+          height: 80,
           justifyContent: "center",
           alignItems: "center",
-          borderTopWidth: 0,
-          borderRadius: 30,
+          alignSelf: "center",
+          borderTopWidth: 1,
+          borderRadius: 25,
           backgroundColor: "rgba(28, 25, 23, 0.58)",
           borderWidth: 1,
           borderColor: "rgba(255, 255, 255, 0.18)",
           paddingHorizontal: 8,
-          paddingTop: 4,
+          paddingTop: 10,
           paddingBottom: 10,
           shadowColor: "#000",
           shadowOpacity: 0.25,
@@ -39,7 +37,6 @@ export default function TabsLayout() {
         tabBarItemStyle: {
           borderRadius: 999,
           marginHorizontal: 3,
-          marginVertical: 1,
           overflow: "hidden",
         },
         tabBarActiveBackgroundColor: "#f97316",
@@ -77,6 +74,15 @@ export default function TabsLayout() {
           title: "Weight",
           tabBarIcon: ({ color }) => (
             <Ionicons size={18} name="barbell-outline" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="tasks"
+        options={{
+          title: "Tasks",
+          tabBarIcon: ({ color }) => (
+            <Ionicons size={18} name="checkbox-outline" color={color} />
           ),
         }}
       />

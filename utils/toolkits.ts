@@ -1,29 +1,3 @@
-export type ToolkitId = "length" | "temperature" | "weight";
-
-export type UnitOption = {
-  key: string;
-  label: string;
-  symbol: string;
-};
-
-export type ToolkitConfig = {
-  id: ToolkitId;
-  title: string;
-  description: string;
-  accent: string;
-  accentSoft: string;
-  units: UnitOption[];
-  defaultFrom: string;
-  defaultTo: string;
-  exampleValue: string;
-};
-
-export type ToolkitState = {
-  value: string;
-  from: string;
-  to: string;
-};
-
 const LENGTH_FACTORS: Record<string, number> = {
   mm: 0.001,
   cm: 0.01,

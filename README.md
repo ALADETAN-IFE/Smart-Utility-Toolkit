@@ -1,78 +1,84 @@
-# NotePad Mobile App
+# Smart Utility Toolkit Mobile App
 
-`NotePad` is a React Native + Expo app I built while learning mobile app development.
+Smart Utility Toolkit is a React Native plus Expo app built for the HNG Mobile track.
 
-It is a personal learning project focused on building practical CRUD flows, local persistence, file-based routing, and shipping a real app build.
+It focuses on practical conversion tools and a local-first task manager, with clean UI patterns, file-based routing, and persistent storage.
 
 ## Live / Hosted Build
 
-The hosted app is available at:
+A hosted install is not included in this repository yet.
 
-- https://notepadbyifecodes.apk.com
+For now, run locally using Expo Go or an emulator.
 
 ## Why I Built This
 
-This project was my hands-on path to learning app development end-to-end:
+This project was built as a hands-on mobile development workflow:
 
-- Designing clean mobile UI with reusable components
-- Managing app state in React Native
-- Persisting data locally with AsyncStorage
-- Implementing create, read, update, and delete operations
-- Navigating between screens with Expo Router
-- Configuring app updates with Expo Updates / EAS
+- Designing a modern utility-focused mobile UI
+- Managing state across multiple tabs and feature modules
+- Persisting user data with AsyncStorage
+- Implementing complete create, read, update, and delete task operations
+- Building converter tools with reusable configuration-driven logic
+- Navigating screens and tabs with Expo Router
 
 ## Features
 
-- Create notes with title, content, and color selection
-- View all notes in a two-column card grid layout
-- Search notes by title or content
-- Open a note details screen
-- Edit and save note content
-- Delete notes with confirmation
-- View note timestamps (`createdAt`, `updatedAt`)
-- Automatic update check prompt on app launch (production builds)
+- Length converter with metric and imperial units
+- Temperature converter for Celsius, Fahrenheit, and Kelvin
+- Weight converter with common unit options
+- Task manager with add, edit, delete, and complete actions
+- Optional due date picker for tasks
+- Inline form validation for title and description
+- Progress tracker for completed versus total tasks
+- Smooth local state updates for task actions 
+- Offline-first behavior for both converters and tasks
+- Local persistence with AsyncStorage
 
 ## Tech Stack
 
-- **Framework:** Expo (React Native)
-- **Language:** TypeScript
-- **Routing:** Expo Router (file-based routing)
-- **Storage:** `@react-native-async-storage/async-storage`
-- **Styling:** NativeWind (Tailwind CSS for React Native)
-- **OTA Updates:** `expo-updates`
-- **Build/Release:** EAS Build
+- Framework: Expo (React Native)
+- Language: TypeScript
+- Routing: Expo Router (file-based routing)
+- Storage: @react-native-async-storage/async-storage
+- Date Input: @react-native-community/datetimepicker
+- Styling: NativeWind (Tailwind CSS for React Native)
+- Icons: @expo/vector-icons (Ionicons)
+- Build/Release: EAS Build
 
 ## Project Structure
 
 ```text
 app/
-   _layout.tsx          # Root layout, stack navigation, update popup
-   index.tsx            # Home screen: list/search/add notes
-   note/[id].tsx        # Note details: view/edit/delete a note
+	_layout.tsx                # Root layout and splash overlay
+	global.css                 # Global NativeWind styles
+	(tabs)/
+		_layout.tsx             # Bottom tab navigation
+		index.tsx               # Redirect entry for tabs
+		length.tsx              # Length converter screen
+		temperature.tsx         # Temperature converter screen
+		weight.tsx              # Weight converter screen
+		tasks.tsx               # Task manager screen
 
 components/
-   AddNoteBtn.tsx
-   AddNoteForm.tsx
-   MessageModal.tsx
-   NoteCard.tsx
-   SearchBar.tsx
-   UpdatePopup.tsx
+	ConverterTabScreen.tsx     # Shared converter tab shell
+	ToolkitCard.tsx            # Converter interaction card
+	TaskComponents.tsx         # Task item and task form UI
 
-hooks/
-   useCheckForUpdates.ts
+utils/
+	toolkits.ts                # Converter configs and conversion logic
+	taskStorage.ts             # AsyncStorage task CRUD helpers
 
-lib/
-   AsynStorage.ts       # Note CRUD helpers using AsyncStorage
-   Persist.ts
+assets/
+	images/                    # App icon and splash assets
 ```
 
 ## Getting Started (Local Development)
 
 ### Prerequisites
 
-- Node.js (LTS recommended)
+- Node.js LTS (Node 20 recommended for Expo SDK 54)
 - npm
-- Expo CLI tooling via `npx`
+- Expo tooling via npx
 - Android Studio emulator and/or iOS simulator (Mac for iOS simulator)
 
 ### Install Dependencies
@@ -89,67 +95,68 @@ npm run start
 
 Then choose one of:
 
-- `a` for Android emulator
-- `i` for iOS simulator
-- `w` for web
-- or scan the QR code with Expo Go / dev client
+- a for Android emulator
+- i for iOS simulator
+- w for web
+- or scan the QR code with Expo Go
 
 ## Available Scripts
 
-- `npm run start` – Start Expo server
-- `npm run dev` – Start with Expo dev client
-- `npm run android` – Launch Android flow
-- `npm run ios` – Launch iOS flow
-- `npm run web` – Launch web build
-- `npm run lint` – Run lint checks
-- `npm run build` – Build Android + iOS with EAS
-- `npm run buildAndroid` – Build Android with EAS
-- `npm run buildiOS` – Build iOS with EAS
+- npm run start - Start Expo development server
+- npm run dev - Start with Expo dev client
+- npm run android - Open Android flow
+- npm run ios - Open iOS flow
+- npm run web - Open web preview
+- npm run lint - Run lint checks
+- npm run build - Build Android plus iOS with EAS
+- npm run buildAndroid - Build Android with EAS
+- npm run buildiOS - Build iOS with EAS
 
 ## Data Model
 
-Each note is stored with this shape:
+Each task is stored with this shape:
 
 ```ts
-type Note = {
+type Task = {
   id: string;
   title: string;
-  content: string;
-  color: string;
-  createdAt: string;
-  updatedAt: string;
+  description: string;
+  completed: boolean;
+  createdAt: number;
+  updatedAt: number;
+  dueDate?: number;
 };
 ```
 
-Notes are saved in local device storage under the `notes` key.
+Tasks are saved in local device storage under the @smart_toolkit_tasks key.
 
 ## Learning Outcomes from This Project
 
-- Building a complete app from idea to deployable build
-- Structuring code into screens, components, hooks, and utility layers
-- Handling loading, empty, and error UI states
-- Implementing lightweight search with debounced input behavior
-- Managing update strategy in development vs production modes
+- Building a multi-feature mobile app under one coherent design system
+- Structuring logic into tab screens, reusable components, and utility modules
+- Managing async operations and fallback UI states for data loading
+- Implementing form validation and inline error display in React Native
+- Building and iterating UI for both utility and task management flows
 
 ## App Configuration
 
-- App Name: `Notepad`
-- Package / Bundle ID: `com.ifecodes.notepad`
-- Expo project owner: `ifecodes`
-- Runtime policy: `appVersion`
+- App Name: Smart Utility Toolkit
+- Package / Bundle ID: com.ifecodes.smartutilitytoolkit
+- Expo project owner: ifecodes
+- Scheme: smartutilitytoolkit
 
 ## Roadmap / Possible Improvements
 
-- Rich text notes
-- Tagging and categories
-- Cloud sync + authentication
-- Dark/light theme toggle
-- Better validation and form UX
-- Unit/integration tests
+- Add task filtering and search
+- Add task sort options (newest, oldest, completed first)
+- Add overdue highlighting and reminder notifications
+- Add cloud sync support
+- Add unit and integration tests
+- Add subtle tab transition animation polish
 
 ## Author
 
-Built by **IfeCodes** as a learning project for mobile app development.
+Built by IfeCodes for the HNG Internship Stage 1 Mobile task.
 
 ## License
 

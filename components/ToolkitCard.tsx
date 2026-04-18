@@ -12,7 +12,6 @@ import {
   createInitialToolkitState,
   formatToolkitValue,
   getUnitLabel,
-  type ToolkitConfig,
 } from "@/utils/toolkits";
 
 type ToolkitCardProps = {

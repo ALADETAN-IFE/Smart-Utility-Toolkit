@@ -1,13 +1,11 @@
-import { ScrollView, Text, View } from 'react-native';
-import { ToolkitCard } from '@/components/ToolkitCard';
-import { getToolkitConfig, type ToolkitId } from '@/utils/toolkits';
+import { ScrollView, Text, View } from "react-native";
+import { ToolkitCard } from "@/components/ToolkitCard";
+import { getToolkitConfig } from "@/utils/toolkits";
 
-type ConverterTabScreenProps = {
-  toolkitId: ToolkitId;
-  eyebrow: string;
-};
-
-export function ConverterTabScreen({ toolkitId, eyebrow }: ConverterTabScreenProps) {
+export function ConverterTabScreen({
+  toolkitId,
+  eyebrow,
+}: ConverterTabScreenProps) {
   const toolkit = getToolkitConfig(toolkitId);
 
   return (
@@ -22,7 +20,7 @@ export function ConverterTabScreen({ toolkitId, eyebrow }: ConverterTabScreenPro
       />
 
       <ScrollView
-        contentContainerClassName="gap-5 px-5 pb-28 pt-14"
+        contentContainerStyle={{ gap: 20, paddingHorizontal: 20, paddingBottom: 112, paddingTop: 56 }}
         keyboardShouldPersistTaps="handled"
         keyboardDismissMode="on-drag"
         showsVerticalScrollIndicator={false}
@@ -34,7 +32,9 @@ export function ConverterTabScreen({ toolkitId, eyebrow }: ConverterTabScreenPro
           <Text className="text-[31px] font-extrabold leading-9 tracking-[-0.4px] text-zinc-50">
             {toolkit.title}
           </Text>
-          <Text className="text-sm leading-6 text-zinc-300">{toolkit.description}</Text>
+          <Text className="text-sm leading-6 text-zinc-300">
+            {toolkit.description}
+          </Text>
         </View>
 
         <ToolkitCard toolkit={toolkit} />
