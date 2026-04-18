@@ -155,7 +155,7 @@ Tasks are saved in local device storage under the @smart_toolkit_tasks key.
 ## Author
 
 - Name: Fortune Ife Aladetan
-- Email: [contact@ifecodes.xyz](mailto:contact@ifecodes.xyz)
+- Email: [contact@ifecodes.xyz](mailto:fortuneifealadetan01@gmail.com)
 - GitHub: [ALADETAN-IFE](https://github.com/ALADETAN-IFE)
 - Portfolio: [ifecodes.xyz](https://www.ifecodes.xyz)
 
