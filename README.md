@@ -154,7 +154,10 @@ Tasks are saved in local device storage under the @smart_toolkit_tasks key.
 
 ## Author
 
-Built by IfeCodes for the HNG Internship Stage 1 Mobile task.
+- Name: Fortune Ife Aladetan
+- Email: [contact@ifecodes.xyz](mailto:contact@ifecodes.xyz)
+- GitHub: [ALADETAN-IFE](https://github.com/ALADETAN-IFE)
+- Portfolio: [ifecodes.xyz](https://www.ifecodes.xyz)
 
 ## License
 
