@@ -1,7 +1,7 @@
 {
   "name": "smart-utility-toolkit-hng-stage-0-i14",
   "main": "expo-router/entry",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "HNG Mobile Stage 0 Smart Utility Toolkit app",
   "scripts": {
     "start": "expo start",
