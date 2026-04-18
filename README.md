@@ -4,11 +4,9 @@ Smart Utility Toolkit is a React Native plus Expo app built for the HNG Mobile t
 
 It focuses on practical conversion tools and a local-first task manager, with clean UI patterns, file-based routing, and persistent storage.
 
-## Live / Hosted Build
+## Live Demo
 
-A hosted install is not included in this repository yet.
-
-For now, run locally using Expo Go or an emulator.
+- Appetize preview link: [Smart Utility Toolkit on Appetize](https://appetize.io/app/b_6yklmmpzvcw2ympswks2urbkfa)
 
 ## Why I Built This
 
